@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Başak Sinema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff7e6;
+            color: #333;
+        }
+        header {
+            background-color: #ff6f00;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .day-selector {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .day-selector select {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .movie {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .movie:hover {
+            transform: scale(1.02);
+        }
+        .movie img {
+            width: 120px;
+            height: 180px;
+            border-radius: 4px;
+            margin-right: 1.5rem;
+        }
+        .movie-details {
+            flex: 1;
+        }
+        .movie-details h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #ff6f00;
+        }
+        .movie-details p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+        .movie-details select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .movie-details button {
+            background-color: #ff6f00;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .movie-details button:hover {
+            background-color: #e65c00;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: #fff;
+            margin-top: 2rem;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Başak Sinema</h1>
+        <p>1 Haftada Yayında Olan Filmler</p>
+    </header>
+    <main>
+        <div class="day-selector">
+            <label for="day">Gün Seçiniz:</label>
+            <select id="day">
+                <option value="Pazartesi">Pazartesi</option>
+                <option value="Salı">Salı</option>
+                <option value="Çarşamba">Çarşamba</option>
+                <option value="Perşembe">Perşembe</option>
+                <option value="Cuma">Cuma</option>
+                <option value="Cumartesi">Cumartesi</option>
+            </select>
+        </div>
+
+        <div class="movie" data-title="Deadpool & Volverine" data-price="250">
+            <img src="deadpool.png" alt="Film 1">
+            <div class="movie-details">
+                <h3>Deadpool & Volverine</h3>
+                <p><strong>Fiyat:</strong> 250 TL</p>
+                <p><strong>Seans:</strong>
+                    <select>
+                        <option value="11:00">11:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="18:00">18:00</option>
+                        <option value="21:00">21:00</option>
+                    </select>
+                </p>
+                <button onclick="buyTicket(this)">Bilet Al</button>
+            </div>
+        </div>
+
+        <div class="movie" data-title="Çöl Gezegeni Bölüm 2" data-price="200">
+            <img src="dune.png" alt="Film 2">
+            <div class="movie-details">
+                <h3>Dune :Çöl Gezegeni Bölüm 2</h3>
+                <p><strong>Fiyat:</strong> 200 TL</p>
+                <p><strong>Seans:</strong>
+                    <select>
+                        <option value="10:00">10:00</option>
+                        <option value="13:00">13:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="20:00">20:00</option>
+                    </select>
+                </p>
+                <button onclick="buyTicket(this)">Bilet Al</button>
+            </div>
+        </div>
+
+        <div class="movie" data-title="Kung Fu Panda 4" data-price="150">
+            <img src="kungfu.png" alt="Film 3">
+            <div class="movie-details">
+                <h3>Kung Fu Panda 4</h3>
+                <p><strong>Fiyat:</strong> 150 TL</p>
+                <p><strong>Seans:</strong>
+                    <select>
+                        <option value="12:00">12:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="22:00">22:00</option>
+                    </select>
+                </p>
+                <button onclick="buyTicket(this)">Bilet Al</button>
+            </div>
+        </div>
+        <div class="movie" data-title="Gladyatör 2" data-price="250">
+            <img src="gladyator.png" alt="Film 4">
+            <div class="movie-details">
+                <h3>Gladyatör 2</h3>
+                <p><strong>Fiyat:</strong> 250 TL</p>
+                <p><strong>Seans:</strong>
+                    <select>
+                        <option value="12:00">12:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="22:00">22:00</option>
+                    </select>
+                </p>
+                <button onclick="buyTicket(this)">Bilet Al</button>
+            </div>
+        </div>
+        <div class="movie" data-title="GÜlümse 2" data-price="250">
+            <img src="gulumse.png" alt="Film 5">
+            <div class="movie-details">
+                <h3>GÜlümse 2</h3>
+                <p><strong>Fiyat:</strong> 250 TL</p>
+                <p><strong>Seans:</strong>
+                    <select>
+                        <option value="12:00">12:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="22:00">22:00</option>
+                    </select>
+                </p>
+                <button onclick="buyTicket(this)">Bilet Al</button>
+            </div>
+        </div>
+
+
+
+    </main>
+    <footer>
+        <p>&copy; 2025 Başak Sinema - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script>
+        function buyTicket(button) {
+            const day = document.getElementById('day').value;
+            const movieElement = button.closest('.movie');
+            const title = movieElement.getAttribute('data-title');
+            const price = movieElement.getAttribute('data-price');
+            const session = movieElement.querySelector('select').value;
+            
+            alert(`Bilet Alındı!\nGün: ${day}\nFilm: ${title}\nSeans: ${session}\nFiyat: ${price} TL`);
+        }
+    </script>
+</body>
+</html>
